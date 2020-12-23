@@ -10,20 +10,21 @@ export default function App() {
         flex: 1,
         flexDirection: "row", // horizontal
         justifyContent: "center", //align w.r.t to main axis
-        alignItems: "center", // align items w.r.t to secondary axis for each line
-        alignContent: "center", // align all items to center(works only when wrapping is done)
-        flexWrap: "wrap",
+        alignItems: "center",
       }}
     >
       <View
-        style={{ backgroundColor: "dodgerblue", width: 100, height: 100 }}
+        style={{
+          backgroundColor: "dodgerblue",
+          width: 100,
+          height: 100,
+          // flexBasis: 100, // can map to height or width
+          // flexGrow:1,
+          flexShrink: 1, //if overflowing shrink this item
+        }}
       />
       <View style={{ backgroundColor: "gold", width: 100, height: 100 }} />
       <View style={{ backgroundColor: "tomato", width: 100, height: 100 }} />
-      <View style={{ backgroundColor: "grey", width: 100, height: 100 }} />
-      <View
-        style={{ backgroundColor: "greenyellow", width: 100, height: 100 }}
-      />
     </View>
   );
 }
