@@ -18,12 +18,18 @@ export default function App() {
           backgroundColor: "dodgerblue",
           width: 100,
           height: 100,
-          // flexBasis: 100, // can map to height or width
-          // flexGrow:1,
-          flexShrink: 1, //if overflowing shrink this item
         }}
       />
-      <View style={{ backgroundColor: "gold", width: 100, height: 100 }} />
+      <View
+        style={{
+          backgroundColor: "gold",
+          width: 100,
+          height: 100,
+          top: 20,
+          right: 20,
+          position: "absolute", //default is relative(we can change the position of component without affecting the whole layout)
+        }}
+      />
       <View style={{ backgroundColor: "tomato", width: 100, height: 100 }} />
     </View>
   );
