@@ -2,6 +2,7 @@ import React from "react";
 import { View, FlatList, StyleSheet, Platform, StatusBar } from "react-native";
 
 import ListItem from "../components/ListItem";
+import ListItemDeleteAction from "../components/ListItemDeleteAction";
 import ListItemSeperator from "../components/ListItemSeperator";
 import Screen from "../components/Screen";
 import colors from "../config/colors";
@@ -32,6 +33,7 @@ function MessagesScreen(props) {
             onPress={() => console.log("message selected", item)}
             title={item.title}
             image={item.image}
+            renderRightActions={ListItemDeleteAction}
           />
         )}
         ItemSeparatorComponent={ListItemSeperator}
