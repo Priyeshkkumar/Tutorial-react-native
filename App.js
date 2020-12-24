@@ -7,12 +7,15 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 
-import AppText from "./app/components/AppText";
+// Since there is index.js in AppText folder therefore we do not need
+// to specify AppText file
+// import AppText from "./app/components/AppText";
+
+import AppText from "./app/components/AppText/AppText";
 
 export default function App() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <MaterialCommunityIcons size={200} color="dodgerblue" name="email" />
       <AppText>React Native</AppText>
     </View>
   );
