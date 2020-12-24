@@ -1,6 +1,13 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
-import { StyleSheet, Text, View, SafeAreaView, Image } from "react-native";
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  Image,
+  TextInput,
+} from "react-native";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
@@ -23,5 +30,22 @@ import AccountScreen from "./app/screens/AccountScreen";
 import ListingsMainScreen from "./app/screens/AccountScreen";
 
 export default function App() {
-  return <ListingsMainScreen />;
+  const [firstName, setFirstName] = useState("");
+  return (
+    <Screen>
+      <Text>{firstName}</Text>
+      <TextInput
+        maxLength={5}
+        keyboardType="numeric"
+        clearButtonMode="always" //only works on ios
+        secureTextEntry={true} //Taking Password
+        onChangeText={(text) => setFirstName(text)}
+        placeholder="First Name"
+        style={{
+          borderBottomColor: "black",
+          borderBottomWidth: 1,
+        }}
+      />
+    </Screen>
+  );
 }

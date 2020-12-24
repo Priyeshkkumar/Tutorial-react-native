@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     // paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     // We can alos use a library expo-constants:
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: "#0b132b",
+    backgroundColor: "dodgerblue",
     flex: 1,
   },
 });
