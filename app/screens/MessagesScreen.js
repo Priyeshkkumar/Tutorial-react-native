@@ -1,8 +1,10 @@
 import React from "react";
-import { FlatList, StyleSheet, Platform, StatusBar } from "react-native";
+import { View, FlatList, StyleSheet, Platform, StatusBar } from "react-native";
 
 import ListItem from "../components/ListItem";
+import ListItemSeperator from "../components/ListItemSeperator";
 import Screen from "../components/Screen";
+import colors from "../config/colors";
 
 const messages = [
   {
@@ -28,6 +30,7 @@ function MessagesScreen(props) {
         renderItem={({ item }) => (
           <ListItem title={item.title} image={item.image} />
         )}
+        ItemSeparatorComponent={ListItemSeperator}
       />
     </Screen>
   );
