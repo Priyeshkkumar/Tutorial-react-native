@@ -1,13 +1,16 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
+
+import AppText from "./app/components/AppText";
 
 export default function App() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text
+      <AppText
         style={{
           fontSize: 20,
           // Android and ios support different fonts, Therefore we need to
@@ -21,7 +24,7 @@ export default function App() {
       >
         React Native
         iasdbiabdibaosdblaibadisbdabsdibasidbaidbiabsdiasbdiasbdiabsdib
-      </Text>
+      </AppText>
     </View>
   );
 }
