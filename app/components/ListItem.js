@@ -5,15 +5,26 @@ import AppText from "./AppText/AppText";
 // Handeling Swipes
 import Swipeable from "react-native-gesture-handler/Swipeable";
 
-function ListItem({ title, image, onPress, renderRightActions, description }) {
+function ListItem({
+  title,
+  description,
+  image,
+  ImageComponent,
+  onPress,
+  renderRightActions,
+}) {
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight underlayColor={colors.primary} onPress={onPress}>
         <View style={styles.container}>
-          <Image style={styles.image} source={image} />
-          <View>
+          {ImageComponent}
+          {/* Conditional Rendering */}
+          {image && <Image style={styles.image} source={image} />}
+          <View style={styles.detailsContainer}>
             <AppText style={styles.title}>{title}</AppText>
-            <AppText style={styles.description}>{description}</AppText>
+            {description && (
+              <AppText style={styles.description}>{description}</AppText>
+            )}
           </View>
         </View>
       </TouchableHighlight>
@@ -28,14 +39,17 @@ const styles = StyleSheet.create({
   },
   description: {
     color: "white",
+    fontSize: 15,
     marginTop: 10,
+  },
+  detailsContainer: {
+    marginLeft: 10,
+    justifyContent: "center",
   },
   image: {
     width: 70,
     height: 70,
     borderRadius: 35,
-    marginRight: 10,
-    marginLeft: 10,
   },
   title: {
     color: "white",
