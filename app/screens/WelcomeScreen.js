@@ -1,16 +1,18 @@
 import React from "react";
 import { Image, ImageBackground, StyleSheet, View } from "react-native";
+import AppButton from "../components/AppButton";
 
 import colors from "../config/colors";
 
 function WelcomeScreen(props) {
   return (
     <ImageBackground
+      blurRadius={1}
       style={styles.background}
       source={require("../assets/background.jpeg")}
     >
-      <View style={styles.loginbutton}></View>
-      <View style={styles.registerbutton}></View>
+      <AppButton title="Login" textcolor="white" />
+      <AppButton title="Register" textcolor="black" />
     </ImageBackground>
   );
 }
@@ -19,22 +21,6 @@ const styles = StyleSheet.create({
   background: {
     flex: 1,
     flexDirection: "row",
-  },
-  loginbutton: {
-    width: "50%",
-    height: 70,
-    backgroundColor: colors.primary,
-    borderWidth: 2,
-    borderColor: "#242423",
-    alignSelf: "flex-end",
-  },
-  registerbutton: {
-    width: "50%",
-    height: 70,
-    backgroundColor: colors.primary,
-    borderWidth: 2,
-    borderColor: "#242423",
-    alignSelf: "flex-end",
   },
   logo: {
     width: 200,

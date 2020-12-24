@@ -6,7 +6,9 @@ import colors from "../config/colors";
 function AppButton(props) {
   return (
     <TouchableOpacity style={styles.button} onPress={props.onPress}>
-      <Text style={styles.text}>{props.title}</Text>
+      <Text style={[styles.text, { color: props.textcolor }]}>
+        {props.title}
+      </Text>
     </TouchableOpacity>
   );
 }
@@ -18,9 +20,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 15,
-    width: "100%",
+    width: "40%",
+    height: 70,
+    borderWidth: 1,
+    alignSelf: "flex-end",
+    margin: 20,
   },
-  text: { color: "black", fontSize: 18, fontWeight: "bold" },
+  text: { fontSize: 18, fontWeight: "bold" },
 });
 
 export default AppButton;

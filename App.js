@@ -15,10 +15,5 @@ import AppText from "./app/components/AppText/AppText";
 import AppButton from "./app/components/AppButton";
 
 export default function App() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <AppText>React Native</AppText>
-      <AppButton title="Button" onPress={() => console.log("Tapped")} />
-    </View>
-  );
+  return <WelcomeScreen></WelcomeScreen>;
 }
