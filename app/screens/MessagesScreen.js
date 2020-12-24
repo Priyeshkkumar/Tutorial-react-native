@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react"; // Function that starts with 'use' is a hook, only availabe in function component
 import { View, FlatList, StyleSheet, Platform, StatusBar } from "react-native";
 
 import ListItem from "../components/ListItem";
@@ -7,7 +7,7 @@ import ListItemSeperator from "../components/ListItemSeperator";
 import Screen from "../components/Screen";
 import colors from "../config/colors";
 
-const messages = [
+const initialMessages = [
   {
     id: 1,
     title: "T1",
@@ -23,6 +23,13 @@ const messages = [
 ];
 
 function MessagesScreen(props) {
+  const [messages, setMessages] = useState(initialMessages);
+
+  const handelDelete = (message) => {
+    // Delete the message from message array
+    setMessages(messages.filter((m) => m.id !== message.id));
+  };
+
   return (
     <Screen>
       <FlatList
@@ -32,8 +39,11 @@ function MessagesScreen(props) {
           <ListItem
             onPress={() => console.log("message selected", item)}
             title={item.title}
+            description={item.description}
             image={item.image}
-            renderRightActions={ListItemDeleteAction}
+            renderRightActions={() => (
+              <ListItemDeleteAction onPress={() => handelDelete(item)} />
+            )}
           />
         )}
         ItemSeparatorComponent={ListItemSeperator}
