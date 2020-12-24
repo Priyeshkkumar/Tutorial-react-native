@@ -9,7 +9,7 @@ function ListItem({
   title,
   description,
   image,
-  ImageComponent,
+  IconComponent,
   onPress,
   renderRightActions,
 }) {
@@ -17,7 +17,7 @@ function ListItem({
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight underlayColor={colors.primary} onPress={onPress}>
         <View style={styles.container}>
-          {ImageComponent}
+          {IconComponent}
           {/* Conditional Rendering */}
           {image && <Image style={styles.image} source={image} />}
           <View style={styles.detailsContainer}>
@@ -35,6 +35,7 @@ function ListItem({
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
+    backgroundColor: "white",
     padding: 15,
   },
   description: {
