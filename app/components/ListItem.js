@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   description: {
-    color: "dodgerblue",
+    color: "white",
     marginTop: 10,
   },
   image: {
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   title: {
-    color: "dodgerblue",
+    color: "white",
     fontWeight: "bold",
   },
 });
