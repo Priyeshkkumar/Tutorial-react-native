@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         fontFamily: "Avernir",
       },
       android: {
-        fontSize: 28,
+        fontSize: 18,
         fontFamily: "Roboto",
       },
     }),
