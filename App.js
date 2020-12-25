@@ -28,24 +28,13 @@ import Icon from "./app/components/Icon";
 import ListItem from "./app/components/ListItem";
 import AccountScreen from "./app/screens/AccountScreen";
 import ListingsMainScreen from "./app/screens/AccountScreen";
+import AppTextInput from "./app/components/AppTextInput";
 
 export default function App() {
   const [firstName, setFirstName] = useState("");
   return (
     <Screen>
-      <Text>{firstName}</Text>
-      <TextInput
-        maxLength={5}
-        keyboardType="numeric"
-        clearButtonMode="always" //only works on ios
-        secureTextEntry={true} //Taking Password
-        onChangeText={(text) => setFirstName(text)}
-        placeholder="First Name"
-        style={{
-          borderBottomColor: "black",
-          borderBottomWidth: 1,
-        }}
-      />
+      <AppTextInput placeholder="UserName" icon="email" />
     </Screen>
   );
 }
