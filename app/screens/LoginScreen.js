@@ -5,9 +5,10 @@ import AppTextInput from "../components/AppTextInput";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
-import Screen from "../components/Screen";
-import colors from "../config/colors";
 import AppText from "../components/AppText/AppText";
+import colors from "../config/colors";
+import ErrorMessage from "../components/ErrorMessage";
+import Screen from "../components/Screen";
 
 // Validation schema: An object that determines rules
 // for validating our form. We are defining it outside our function
@@ -37,9 +38,7 @@ function LoginScreen(props) {
               placeholder="Email"
               textContentType="emailAddress" //only works on ios
             />
-            <AppText style={{ color: "red", fontSize: 15, marginLeft: 15 }}>
-              {errors.email}
-            </AppText>
+            <ErrorMessage>{errors.email}</ErrorMessage>
             <AppTextInput
               autoCaaitalize="none"
               autoCorrect={false}
@@ -49,9 +48,7 @@ function LoginScreen(props) {
               placeholder="Password"
               textContentType="password" //only works on ios
             />
-            <AppText style={{ color: "red", fontSize: 15, marginLeft: 15 }}>
-              {errors.password}
-            </AppText>
+            <ErrorMessage>{errors.password}</ErrorMessage>
             <AppButton
               //   setting the width of the button
               style={{
