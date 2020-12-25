@@ -6,6 +6,7 @@ import {
   Platform,
   Modal,
   Button,
+  FlatList,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
@@ -14,8 +15,9 @@ import defaultStyles from "../config/styles";
 import AppText from "./AppText/AppText";
 import { TouchableWithoutFeedback } from "react-native";
 import Screen from "./Screen";
+import PickerItem from "./PickerItem";
 
-function AppPicker({ icon, placeholder, ...otherProps }) {
+function AppPicker({ icon, items, placeholder }) {
   const [moadlVisible, setModalVisible] = useState(false);
   return (
     //   `<>' is equivalent to React.Fragment
@@ -41,6 +43,17 @@ function AppPicker({ icon, placeholder, ...otherProps }) {
       <Modal visible={moadlVisible} animationType="slide">
         <Screen>
           <Button title="Close" onPress={() => setModalVisible(false)} />
+          <FlatList
+            data={items}
+            keyExtractor={(item) => item.value.toString()}
+            renderItem={({ item }) => (
+              <PickerItem
+                label={item.label}
+                // onPress return a function, therefore `()'
+                onPress={() => console.log(item)}
+              />
+            )}
+          />
         </Screen>
       </Modal>
     </>
