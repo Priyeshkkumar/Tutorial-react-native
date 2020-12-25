@@ -1,15 +1,11 @@
 import React from "react";
 import { Image, StyleSheet, Text } from "react-native";
-import AppButton from "../components/AppButton";
-import AppTextInput from "../components/AppTextInput";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
-import AppText from "../components/AppText/AppText";
-import colors from "../config/colors";
-import ErrorMessage from "../components/ErrorMessage";
 import Screen from "../components/Screen";
 import AppFormField from "../components/AppFormField";
+import SubmitButton from "../components/SubmitButton";
 
 // Validation schema: An object that determines rules
 // for validating our form. We are defining it outside our function
@@ -28,7 +24,7 @@ function LoginScreen(props) {
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        {({ handleChange, handleSubmit, errors, setFieldTouched, touched }) => (
+        {() => (
           <>
             <AppFormField
               autoCaaitalize="none"
@@ -48,17 +44,7 @@ function LoginScreen(props) {
               secureTextEntry={true}
               textContentType="password" //only works on ios
             />
-            <AppButton
-              //   setting the width of the button
-              style={{
-                width: "95%",
-                height: 60,
-                margin: 10,
-                backgroundColor: colors.secondary,
-              }}
-              title="Login"
-              onPress={handleSubmit} // onSubmit props of Formik will be called by handleSubmit
-            />
+            <SubmitButton title="Login" />
           </>
         )}
       </Formik>
