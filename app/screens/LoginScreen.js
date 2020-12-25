@@ -9,6 +9,7 @@ import AppText from "../components/AppText/AppText";
 import colors from "../config/colors";
 import ErrorMessage from "../components/ErrorMessage";
 import Screen from "../components/Screen";
+import AppFormField from "../components/AppFormField";
 
 // Validation schema: An object that determines rules
 // for validating our form. We are defining it outside our function
@@ -29,30 +30,24 @@ function LoginScreen(props) {
       >
         {({ handleChange, handleSubmit, errors, setFieldTouched, touched }) => (
           <>
-            <AppTextInput
+            <AppFormField
               autoCaaitalize="none"
               autoCorrect={false}
               icon="email"
               keyboardType="email-address"
-              onBlur={() => setFieldTouched("email")}
-              onChangeText={handleChange("email")}
+              name="email"
               placeholder="Email"
               textContentType="emailAddress" //only works on ios
             />
-            <ErrorMessage error={errors.email} visible={touched.email} />
-            <AppTextInput
+            <AppFormField
               autoCaaitalize="none"
               autoCorrect={false}
               icon="lock"
-              onBlur={() => setFieldTouched("password")}
-              onChangeText={handleChange("password")}
-              secureTextEntry={true}
+              name="password"
               placeholder="Password"
+              secureTextEntry={true}
               textContentType="password" //only works on ios
             />
-            {/* Below is the other way to hide error msg until component is touched */}
-            {/* {touched.emial && <ErrorMessage>{errors.password}</ErrorMessage>} */}
-            <ErrorMessage error={errors.password} visible={touched.password} />
             <AppButton
               //   setting the width of the button
               style={{
