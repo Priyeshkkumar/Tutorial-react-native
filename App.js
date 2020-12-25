@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   Image,
   TextInput,
+  Switch,
 } from "react-native";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -31,10 +32,11 @@ import ListingsMainScreen from "./app/screens/AccountScreen";
 import AppTextInput from "./app/components/AppTextInput";
 
 export default function App() {
-  const [firstName, setFirstName] = useState("");
+  const [isNew, setIsNew] = useState(false);
   return (
     <Screen>
-      <AppTextInput placeholder="UserName" icon="email" />
+      {/*                                    |below is the function recieving a value: `newValue' which we use in setIsNew to update the state*/}
+      <Switch value={isNew} onValueChange={(newValue) => setIsNew(newValue)} />
     </Screen>
   );
 }

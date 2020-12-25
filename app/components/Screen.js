@@ -1,6 +1,7 @@
 import React from "react";
 import Constants from "expo-constants";
 import { SafeAreaView, StyleSheet, View } from "react-native";
+import colors from "../config/colors";
 
 function Screen(props) {
   return (
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
     // paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     // We can alos use a library expo-constants:
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: "dodgerblue",
+    backgroundColor: colors.white,
     flex: 1,
   },
 });
