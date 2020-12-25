@@ -30,13 +30,14 @@ import ListItem from "./app/components/ListItem";
 import AccountScreen from "./app/screens/AccountScreen";
 import ListingsMainScreen from "./app/screens/AccountScreen";
 import AppTextInput from "./app/components/AppTextInput";
+import AppPicker from "./app/components/AppPicker";
 
 export default function App() {
   const [isNew, setIsNew] = useState(false);
   return (
     <Screen>
-      {/*                                    |below is the function recieving a value: `newValue' which we use in setIsNew to update the state*/}
-      <Switch value={isNew} onValueChange={(newValue) => setIsNew(newValue)} />
+      <AppPicker icon="apps" placeholder="Category" />
+      <AppTextInput icon="email" placeholder="Email" />
     </Screen>
   );
 }
