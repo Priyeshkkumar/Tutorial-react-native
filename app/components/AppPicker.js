@@ -17,7 +17,7 @@ import { TouchableWithoutFeedback } from "react-native";
 import Screen from "./Screen";
 import PickerItem from "./PickerItem";
 
-function AppPicker({ icon, items, placeholder }) {
+function AppPicker({ icon, items, onSelectItem, placeholder, selectedItem }) {
   const [moadlVisible, setModalVisible] = useState(false);
   return (
     //   `<>' is equivalent to React.Fragment
@@ -32,7 +32,9 @@ function AppPicker({ icon, items, placeholder }) {
               style={styles.icon}
             />
           )}
-          <AppText style={styles.text}>{placeholder}</AppText>
+          <AppText style={styles.text}>
+            {selectedItem ? selectedItem.label : placeholder}
+          </AppText>
           <MaterialCommunityIcons
             name="chevron-down"
             size={25}
@@ -50,7 +52,10 @@ function AppPicker({ icon, items, placeholder }) {
               <PickerItem
                 label={item.label}
                 // onPress return a function, therefore `()'
-                onPress={() => console.log(item)}
+                onPress={() => {
+                  setModalVisible(false);
+                  onSelectItem(item);
+                }}
               />
             )}
           />
