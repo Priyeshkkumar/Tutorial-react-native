@@ -1,8 +1,9 @@
 import React from "react";
 import { TextInput, View, StyleSheet, Platform } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+
 import colors from "../config/colors";
-import { Colors } from "react-native/Libraries/NewAppScreen";
+import defaultStyles from "../config/styles";
 
 function AppTextInput({ icon, ...otherProps }) {
   return (
@@ -11,32 +12,28 @@ function AppTextInput({ icon, ...otherProps }) {
         <MaterialCommunityIcons
           name={icon}
           size={25}
-          color={Colors.black}
+          color={colors.medium}
           style={styles.icon}
         />
       )}
       {/* We use `...' to just copy the props */}
-      <TextInput style={styles.textInput} {...otherProps} />
+      <TextInput style={defaultStyles.text} {...otherProps} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.light,
+    backgroundColor: colors.light,
     borderRadius: 25,
     flexDirection: "row",
-    width: "100%",
+    width: "95%",
+    alignSelf: "center",
     padding: 15,
-    marginVertical: 10,
+    margin: 10,
   },
   icon: {
     marginRight: 10,
-  },
-  textInput: {
-    color: Colors.dark,
-    fontSize: 18,
-    fontFamily: Platform.OS === "android" ? "Roboto" : "Avernir",
   },
 });
 
