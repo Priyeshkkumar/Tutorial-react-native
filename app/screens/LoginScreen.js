@@ -14,7 +14,7 @@ import Screen from "../components/Screen";
 // for validating our form. We are defining it outside our function
 // as we don't want it to re-define every time function get rendered
 const validationSchema = Yup.object().shape({
-  email: Yup.string().email().label("Email").required("Required"),
+  email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(4).label("Password"),
 });
 
@@ -27,28 +27,32 @@ function LoginScreen(props) {
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        {({ handleChange, handleSubmit, errors }) => (
+        {({ handleChange, handleSubmit, errors, setFieldTouched, touched }) => (
           <>
             <AppTextInput
               autoCaaitalize="none"
               autoCorrect={false}
               icon="email"
               keyboardType="email-address"
+              onBlur={() => setFieldTouched("email")}
               onChangeText={handleChange("email")}
               placeholder="Email"
               textContentType="emailAddress" //only works on ios
             />
-            <ErrorMessage>{errors.email}</ErrorMessage>
+            <ErrorMessage error={errors.email} visible={touched.email} />
             <AppTextInput
               autoCaaitalize="none"
               autoCorrect={false}
               icon="lock"
+              onBlur={() => setFieldTouched("password")}
               onChangeText={handleChange("password")}
               secureTextEntry={true}
               placeholder="Password"
               textContentType="password" //only works on ios
             />
-            <ErrorMessage>{errors.password}</ErrorMessage>
+            {/* Below is the other way to hide error msg until component is touched */}
+            {/* {touched.emial && <ErrorMessage>{errors.password}</ErrorMessage>} */}
+            <ErrorMessage error={errors.password} visible={touched.password} />
             <AppButton
               //   setting the width of the button
               style={{
