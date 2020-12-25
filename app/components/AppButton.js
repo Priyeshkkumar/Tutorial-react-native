@@ -5,7 +5,10 @@ import colors from "../config/colors";
 
 function AppButton(props) {
   return (
-    <TouchableOpacity style={styles.button} onPress={props.onPress}>
+    <TouchableOpacity
+      style={[styles.button, props.style]}
+      onPress={props.onPress}
+    >
       <Text style={[styles.text, { color: props.textcolor }]}>
         {props.title}
       </Text>

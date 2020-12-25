@@ -31,6 +31,7 @@ import AccountScreen from "./app/screens/AccountScreen";
 import ListingsMainScreen from "./app/screens/AccountScreen";
 import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
+import LoginScreen from "./app/screens/LoginScreen";
 
 const categories = [
   {
@@ -51,17 +52,5 @@ export default function App() {
   // state for AppPicker
   const [category, setCategory] = useState(categories[0]);
 
-  return (
-    <Screen>
-      <AppPicker
-        selectedItem={category}
-        // Function to set the placeholder on AppPicker
-        onSelectItem={(item) => setCategory(item)}
-        items={categories}
-        icon="apps"
-        placeholder="Category"
-      />
-      <AppTextInput icon="email" placeholder="Email" />
-    </Screen>
-  );
+  return <LoginScreen />;
 }
