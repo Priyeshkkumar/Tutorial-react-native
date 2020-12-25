@@ -17,7 +17,7 @@ function AppTextInput({ icon, ...otherProps }) {
         />
       )}
       {/* We use `...' to just copy the props */}
-      <TextInput style={defaultStyles.text} {...otherProps} />
+      <TextInput style={[defaultStyles.text, { flex: 1 }]} {...otherProps} />
     </View>
   );
 }

@@ -1,11 +1,21 @@
 import React from "react";
-import { Image, StyleSheet } from "react-native";
+import { Image, StyleSheet, Text } from "react-native";
 import AppButton from "../components/AppButton";
 import AppTextInput from "../components/AppTextInput";
 import { Formik } from "formik";
+import * as Yup from "yup";
 
 import Screen from "../components/Screen";
 import colors from "../config/colors";
+import AppText from "../components/AppText/AppText";
+
+// Validation schema: An object that determines rules
+// for validating our form. We are defining it outside our function
+// as we don't want it to re-define every time function get rendered
+const validationSchema = Yup.object().shape({
+  email: Yup.string().email().label("Email").required("Required"),
+  password: Yup.string().required().min(4).label("Password"),
+});
 
 function LoginScreen(props) {
   return (
@@ -14,8 +24,9 @@ function LoginScreen(props) {
       <Formik
         initialValues={{ email: "", password: " " }}
         onSubmit={(values) => console.log(values)}
+        validationSchema={validationSchema}
       >
-        {({ handleChange, handleSubmit }) => (
+        {({ handleChange, handleSubmit, errors }) => (
           <>
             <AppTextInput
               autoCaaitalize="none"
@@ -26,6 +37,9 @@ function LoginScreen(props) {
               placeholder="Email"
               textContentType="emailAddress" //only works on ios
             />
+            <AppText style={{ color: "red", fontSize: 15, marginLeft: 15 }}>
+              {errors.email}
+            </AppText>
             <AppTextInput
               autoCaaitalize="none"
               autoCorrect={false}
@@ -35,6 +49,9 @@ function LoginScreen(props) {
               placeholder="Password"
               textContentType="password" //only works on ios
             />
+            <AppText style={{ color: "red", fontSize: 15, marginLeft: 15 }}>
+              {errors.password}
+            </AppText>
             <AppButton
               //   setting the width of the button
               style={{
