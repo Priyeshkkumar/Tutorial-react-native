@@ -23,7 +23,7 @@ function LoginScreen(props) {
         validationSchema={validationSchema}
       >
         <AppFormField
-          autoCaaitalize="none"
+          autoCapitalize="none"
           autoCorrect={false}
           icon="email"
           keyboardType="email-address"
@@ -32,7 +32,7 @@ function LoginScreen(props) {
           textContentType="emailAddress" //only works on ios
         />
         <AppFormField
-          autoCaaitalize="none"
+          autoCapitalize="none"
           autoCorrect={false}
           icon="lock"
           name="password"

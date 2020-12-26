@@ -32,6 +32,7 @@ import ListingsMainScreen from "./app/screens/AccountScreen";
 import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
 import LoginScreen from "./app/screens/LoginScreen";
+import ListingEditScreen from "./app/screens/ListingEditScreen";
 
 const categories = [
   {
@@ -52,5 +53,5 @@ export default function App() {
   // state for AppPicker
   const [category, setCategory] = useState(categories[0]);
 
-  return <LoginScreen />;
+  return <ListingEditScreen />;
 }
