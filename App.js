@@ -53,5 +53,5 @@ export default function App() {
   // state for AppPicker
   const [category, setCategory] = useState(categories[0]);
 
-  return <ListingEditScreen />;
+  return <MessagesScreen />;
 }
