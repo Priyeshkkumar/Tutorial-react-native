@@ -17,7 +17,11 @@ function AppTextInput({ icon, ...otherProps }) {
         />
       )}
       {/* We use `...' to just copy the props */}
-      <TextInput style={[defaultStyles.text, { flex: 1 }]} {...otherProps} />
+      <TextInput
+        placeholderTextColor={colors.medium}
+        style={[defaultStyles.text, { flex: 1 }]}
+        {...otherProps}
+      />
     </View>
   );
 }

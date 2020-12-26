@@ -18,14 +18,12 @@ function AppButton(props) {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: colors.primary,
     borderRadius: 25,
     justifyContent: "center",
     alignItems: "center",
     padding: 15,
     width: "40%",
     height: 70,
-    borderWidth: 1,
     alignSelf: "flex-end",
     margin: 20,
   },
