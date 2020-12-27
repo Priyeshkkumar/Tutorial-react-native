@@ -8,7 +8,16 @@ import { TouchableWithoutFeedback } from "react-native";
 import Screen from "./Screen";
 import PickerItem from "./PickerItem";
 
-function AppPicker({ icon, items, onSelectItem, placeholder, selectedItem }) {
+function AppPicker({
+  icon,
+  items,
+  onSelectItem,
+  // Props starting with Capital letter means we have to pass a component
+  // We set the default to PickerItem component
+  PickerItemComponent = PickerItem,
+  placeholder,
+  selectedItem,
+}) {
   const [moadlVisible, setModalVisible] = useState(false);
   return (
     //   `<>' is equivalent to React.Fragment
@@ -43,7 +52,7 @@ function AppPicker({ icon, items, onSelectItem, placeholder, selectedItem }) {
             data={items}
             keyExtractor={(item) => item.value.toString()}
             renderItem={({ item }) => (
-              <PickerItem
+              <PickerItemComponent
                 label={item.label}
                 // onPress return a function, therefore `()'
                 onPress={() => {

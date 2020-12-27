@@ -1,5 +1,6 @@
 import React from "react";
 import * as Yup from "yup";
+import CategoryPickerItem from "../components/CategoryPickerItem";
 
 import { AppForm, AppFormField, SubmitButton } from "../components/Forms";
 import AppFormPicker from "../components/Forms/AppFormPicker";
@@ -39,6 +40,7 @@ function ListingEditScreen(props) {
         <AppFormPicker
           items={categories}
           name="category"
+          PickerItemComponent={CategoryPickerItem}
           placeholder="Category"
         />
         <AppFormField
@@ -48,7 +50,7 @@ function ListingEditScreen(props) {
           numberOfLines={3}
           placeholder="Description"
         />
-        <SubmitButton title="Submit" />
+        <SubmitButton title="POST" />
       </AppForm>
     </Screen>
   );
