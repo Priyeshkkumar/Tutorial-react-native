@@ -23,9 +23,13 @@ function ListItem({
           {/* Conditional Rendering */}
           {image && <Image style={styles.image} source={image} />}
           <View style={styles.detailsContainer}>
-            <AppText style={styles.title}>{title}</AppText>
+            <AppText style={styles.title} numberOfLines={1}>
+              {title}
+            </AppText>
             {description && (
-              <AppText style={styles.description}>{description}</AppText>
+              <AppText style={styles.description} numberOfLines={2}>
+                {description}
+              </AppText>
             )}
           </View>
           <MaterialCommunityIcons

@@ -5,13 +5,14 @@ import ListItem from "../components/ListItem";
 import ListItemDeleteAction from "../components/ListItemDeleteAction";
 import ListItemSeperator from "../components/ListItemSeperator";
 import Screen from "../components/Screen";
-import colors from "../config/colors";
 
 const initialMessages = [
   {
     id: 1,
-    title: "T1",
-    description: "D1",
+    title:
+      "Dolor nulla nisi ea aute pariatur in minim irure dolor sit.Velit cillum consequat nisi in sunt occaecat laborum sunt occaecat.Veniam eiusmod anim exercitation ipsum consectetur aliquip qui nulla sit et aute est.",
+    description:
+      "Cupidatat cupidatat deserunt excepteur irure ex labore ex incididunt minim eiusmod officia enim qui eiusmod. Nisi consectetur ad laborum aliqua est elit. Pariatur Lorem in sunt sunt quis exercitation proident esse reprehenderit voluptate sit deserunt qui commodo.Est id esse nisi ex velit ad dolor deserunt cillum. Irure nulla aliquip pariatur ea laboris labore duis culpa ea officia qui laborum occaecat commodo. Mollit voluptate aute nulla ipsum laboris duis velit qui magna id consequat.Nisi labore irure in veniam deserunt. Non laborum amet laborum eu nulla duis pariatur sit deserunt aliquip aliquip. Esse incididunt culpa excepteur et commodo aliquip ad non eiusmod.",
     image: require("../assets/3.jpeg"),
   },
   {
