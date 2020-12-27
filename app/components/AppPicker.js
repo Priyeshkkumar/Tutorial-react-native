@@ -11,6 +11,7 @@ import PickerItem from "./PickerItem";
 function AppPicker({
   icon,
   items,
+  numberOfColumns = 1,
   onSelectItem,
   // Props starting with Capital letter means we have to pass a component
   // We set the default to PickerItem component
@@ -51,8 +52,10 @@ function AppPicker({
           <FlatList
             data={items}
             keyExtractor={(item) => item.value.toString()}
+            numColumns={numberOfColumns}
             renderItem={({ item }) => (
               <PickerItemComponent
+                item={item}
                 label={item.label}
                 // onPress return a function, therefore `()'
                 onPress={() => {
