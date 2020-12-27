@@ -6,7 +6,7 @@ import colors from "../config/colors";
 function Screen(props) {
   return (
     <SafeAreaView style={[styles.screen, props.style]}>
-      <View style={props.style}>{props.children}</View>
+      <View style={[props.style, styles.view]}>{props.children}</View>
     </SafeAreaView>
   );
 }
@@ -17,6 +17,9 @@ const styles = StyleSheet.create({
     // We can alos use a library expo-constants:
     paddingTop: Constants.statusBarHeight,
     backgroundColor: colors.white,
+    flex: 1,
+  },
+  view: {
     flex: 1,
   },
 });
